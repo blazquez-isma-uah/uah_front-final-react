@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import ProductList from './components/ProductList';
 import Cart from './components/Cart';
 import data from './data/data.json';
-import './App.css';
 import './styles.css';
+import './App.css';
+
 
 
 function App() {

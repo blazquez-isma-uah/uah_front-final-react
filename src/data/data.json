@@ -21,7 +21,11 @@
             "price": 50.0,
             "stock": 10,
             "categoryId": 1,
-            "image": "img/auriculares.jpg"
+            "images": [
+                "img/auriculares.jpg",
+                "img/smartphone.jpg",
+                "img/auriculares.jpg"
+            ]
         },
         {
             "id": 102,
@@ -30,7 +34,11 @@
             "price": 800.5,
             "stock": 5,
             "categoryId": 1,
-            "image": "img/smartphone.jpg"
+            "images": [
+                "img/smartphone.jpg",
+                "img/smartphone.jpg",
+                "img/smartphone.jpg"
+            ]
         },
         {
             "id": 103,
@@ -39,7 +47,11 @@
             "price": 1300.0,
             "stock": 3,
             "categoryId": 1,
-            "image": "img/laptop.jpg"
+            "images": [
+                "img/laptop.jpg",
+                "img/laptop.jpg",
+                "img/laptop.jpg"
+            ]
         },
         {
             "id": 104,
@@ -48,7 +60,11 @@
             "price": 560.5,
             "stock": 7,
             "categoryId": 1,
-            "image": "img/tablet.jpg"
+            "images": [
+                "img/tablet.jpg",
+                "img/tablet.jpg",
+                "img/tablet.jpg"
+            ]
         },
         {
             "id": 105,
@@ -57,7 +73,11 @@
             "price": 200.5,
             "stock": 6,
             "categoryId": 1,
-            "image": "img/camara.jpg"
+            "images": [
+                "img/camara.jpg",
+                "img/camara.jpg",
+                "img/camara.jpg"
+            ]
         },
         {
             "id": 106,
@@ -66,7 +86,11 @@
             "price": 250.0,
             "stock": 8,
             "categoryId": 1,
-            "image": "img/smartwatch.jpg"
+            "images": [
+                "img/smartwatch.jpg",
+                "img/smartwatch.jpg",
+                "img/smartwatch.jpg"
+            ]
         },
         {
             "id": 201,
@@ -75,7 +99,11 @@
             "price": 20.0,
             "stock": 15,
             "categoryId": 2,
-            "image": "img/camiseta.jpg"
+            "images": [
+                "img/camiseta.jpg",
+                "img/camiseta.jpg",
+                "img/camiseta.jpg"
+            ]
         },
         {
             "id": 301,
@@ -84,7 +112,11 @@
             "price": 30.5,
             "stock": 8,
             "categoryId": 3,
-            "image": "img/lampara.jpg"
+            "images": [
+                "img/lampara.jpg",
+                "img/lampara.jpg",
+                "img/lampara.jpg"
+            ]
         }
     ]
 }
