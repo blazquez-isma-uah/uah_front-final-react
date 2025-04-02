@@ -11,7 +11,7 @@ function Cart({ cart, products, onRemoveFromCart, onCheckout }) {
             return (
               <li key={item.id} className="list-group-item d-flex align-items-center">
                 <img
-                  src={product.image}
+                  src={product.images[0]}
                   alt={item.name}
                   className="me-2"
                   style={{ width: '50px', height: '50px', objectFit: 'cover' }}
