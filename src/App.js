@@ -11,6 +11,8 @@ function App() {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [cart, setCart] = useState([]);
+  const [showNotification, setShowNotification] = useState(false);
+
 
   // Cargar productos y categorías
   useEffect(() => {
@@ -44,6 +46,11 @@ function App() {
 
       setProducts(updatedProducts);
       setCart(updatedCart);
+
+      setShowNotification(true);
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 1000);
     }
   };
 
@@ -81,29 +88,40 @@ function App() {
     alert(`Compra realizada. Total: $${total.toFixed(2)}`);
     setCart([]);
   };
-
+  
   return (
     <div className="App">
       <h1 className="text-center mt-3">Tienda Online</h1>
-      <div className="container d-flex mt-4 gap-4">
-        <div className="w-70">
-          <ProductList
-            categories={categories}
-            products={products}
-            onAddToCart={handleAddToCart}
-          />
-        </div>
-        <div className="w-30">
-          <Cart
-            cart={cart}
-            products={products}
-            onRemoveFromCart={handleRemoveFromCart}
-            onCheckout={handleCheckout}
-          />
+      <div className="container mt-4">
+        <div className="row">
+          <div className='col-md-8'>
+            <ProductList
+              categories={categories}
+              products={products}
+              onAddToCart={handleAddToCart}
+            />
+          </div>
+          <div className='col-md-4'>
+            <Cart
+              cart={cart}
+              products={products}
+              onRemoveFromCart={handleRemoveFromCart}
+              onCheckout={handleCheckout}
+            />
+            { showNotification && (
+              <div className="alert alert-success notification">
+                <p>Producto agregado al carrito</p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
+
   );
+
+
+
 }
 
 export default App;

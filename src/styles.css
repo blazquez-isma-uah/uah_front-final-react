@@ -98,10 +98,8 @@
 
 .notification {
     position: fixed;
-    bottom: 50px;
-    right: 100px;
+    bottom: 1%;
+    right: 1%;
     z-index: 1050; /* Asegura que la notificación esté por encima de otros elementos */
-    display: none; /* Oculta la notificación por defecto */
-    max-width: 300px; /* Limita el ancho máximo de la notificación */
 }
 

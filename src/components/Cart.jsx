@@ -3,12 +3,9 @@ function Cart({ cart, products, onRemoveFromCart, onCheckout }) {
     cart.reduce((acc, item) => acc + item.quantity * item.price, 0).toFixed(2);
 
   return (
-    <div className="card">
-      <div className="card-header bg-primary text-white">
-        <h2 className="h5 mb-0">Cesta de la Compra</h2>
-      </div>
-      <div className="card-body">
-        <ul className="list-group mb-3">
+    <div id="cart-section">
+      <h2>Cesta de la Compra</h2>
+      <ul id="cart-list" className="list-group">
           {cart.map(item => {
             const product = products.find(p => p.id === item.id);
             return (
@@ -32,11 +29,12 @@ function Cart({ cart, products, onRemoveFromCart, onCheckout }) {
             );
           })}
         </ul>
-        <p><strong>Total:</strong> ${getTotal()}</p>
-        <button className="btn btn-success w-100" onClick={onCheckout}>
+        <div className="mt-3">
+            <strong>Total: <span id="cart-total"> ${getTotal()}</span></strong>
+        </div>
+        <button id="checkout-button" className="btn btn-success mt-3" onClick={onCheckout}>
           Realizar Pedido
         </button>
-      </div>
     </div>
   );
 }
