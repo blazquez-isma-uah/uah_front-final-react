@@ -29,6 +29,19 @@
     border-bottom: 2px solid #ddd; 
 }
 
+.category-container {
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.category-container.expanded {
+    max-height: 2000px; /* lo suficientemente alto para mostrar los productos */
+}
+
+.category-container.collapsed {
+    max-height: 0;
+}
+  
 
 .card {
     height: 100%; 
