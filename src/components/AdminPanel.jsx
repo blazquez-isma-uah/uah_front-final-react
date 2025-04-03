@@ -104,6 +104,23 @@ function AdminPanel({ categories, setCategories, products, setProducts }) {
   };
   
 
+  const handleExportStore = () => {
+    const dataToExport = {
+      categories,
+      products
+    };
+  
+    const blob = new Blob([JSON.stringify(dataToExport, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+  
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'tienda_exportada.json';
+    link.click();
+  
+    URL.revokeObjectURL(url);
+  };
+  
 
   if (!isAdmin) {
     return (
@@ -124,8 +141,9 @@ function AdminPanel({ categories, setCategories, products, setProducts }) {
   return (
     <div className="card p-4 mt-4">
       <h4>Panel de Administración</h4>
-      <div className="justify-content-between align-items-center px-4 m-3">
-        <button className="btn btn-danger" onClick={handleResetStore}><i className="bi bi-arrow-clockwise"></i> Resetear Tienda</button>
+      <div className="d-flex justify-content-center align-items-center px-4 m-3">
+        <button className="btn btn-danger me-3" onClick={handleResetStore}><i className="bi bi-arrow-clockwise"></i> Resetear Tienda</button>
+        <button className="btn btn-success me-3" onClick={handleExportStore}><i className="bi bi-file-earmark-arrow-down"></i> Exportar Tienda</button>
       </div>
       <div className="m-4">
         <h5>Añadir Categoría</h5>
