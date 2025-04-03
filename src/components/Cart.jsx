@@ -1,3 +1,5 @@
+import CartProduct from "./CartProduct";
+
 function Cart({ cart, products, onRemoveFromCart, onCheckout }) {
   const getTotal = () =>
     cart.reduce((acc, item) => acc + item.quantity * item.price, 0).toFixed(2);
@@ -9,23 +11,12 @@ function Cart({ cart, products, onRemoveFromCart, onCheckout }) {
           {cart.map(item => {
             const product = products.find(p => p.id === item.id);
             return (
-              <li key={item.id} className="list-group-item d-flex align-items-center">
-                <img
-                  src={product.images[0]}
-                  alt={item.name}
-                  className="me-2"
-                  style={{ width: '50px', height: '50px', objectFit: 'cover' }}
+                <CartProduct
+                    key={item.id}
+                    item={item}
+                    product={product}
+                    onRemove={onRemoveFromCart}
                 />
-                <span>
-                  <strong>{item.name}</strong> (x{item.quantity}) – ${item.price * item.quantity}
-                </span>
-                <button
-                  className="btn btn-sm btn-danger ms-auto"
-                  onClick={() => onRemoveFromCart(item.id)}
-                >
-                  <i className="bi bi-trash3"></i> Eliminar
-                </button>
-              </li>
             );
           })}
         </ul>
