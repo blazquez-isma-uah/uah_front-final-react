@@ -122,6 +122,37 @@ function AdminPanel({ categories, setCategories, products, setProducts }) {
   };
   
 
+  const handleImportStore = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+  
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      try {
+        const imported = JSON.parse(event.target.result);
+  
+        if (!imported.categories || !imported.products) {
+          alert('El archivo JSON no tiene la estructura esperada.');
+          return;
+        }
+  
+        localStorage.setItem('categories', JSON.stringify(imported.categories));
+        localStorage.setItem('products', JSON.stringify(imported.products));
+  
+        setCategories(imported.categories);
+        setProducts(imported.products);
+  
+        alert('Tienda importada correctamente.');
+      } catch (err) {
+        alert('Error al leer el archivo JSON.');
+        console.error(err);
+      }
+    };
+  
+    reader.readAsText(file);
+  };
+  
+
   if (!isAdmin) {
     return (
       <div className="card p-4">
@@ -144,6 +175,16 @@ function AdminPanel({ categories, setCategories, products, setProducts }) {
       <div className="d-flex justify-content-center align-items-center px-4 m-3">
         <button className="btn btn-danger me-3" onClick={handleResetStore}><i className="bi bi-arrow-clockwise"></i> Resetear Tienda</button>
         <button className="btn btn-success me-3" onClick={handleExportStore}><i className="bi bi-file-earmark-arrow-down"></i> Exportar Tienda</button>
+        <div className="custom-file-upload"> 
+        <label htmlFor="fileInput" className="btn btn-primary">Importar Tienda (.json)</label>
+        <input
+            id="fileInput"
+            type="file"
+            className="d-none"
+            onChange={handleImportStore}
+            accept=".json"
+        />
+        </div>
       </div>
       <div className="m-4">
         <h5>Añadir Categoría</h5>
