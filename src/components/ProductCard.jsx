@@ -8,15 +8,22 @@ function ProductCard({ product, onAddToCart }) {
     // Cambia la imagen al pasar el ratón
     useEffect(() => {
         let interval;
+        let timer;
+
         if (hovering && images.length > 1) {
-          interval = setInterval(() => {
-            setCurrentImageIndex(prev => (prev + 1) % images.length);
-          }, 1000);
-        } else {
-          setCurrentImageIndex(0); // volver a imagen principal al salir
-        }
+          // Primero espera 1 segundo antes de iniciar el ciclo para que haga zoom
+          timer = setTimeout(() => {
+            interval = setInterval(() => {
+              setCurrentImageIndex(prev => (prev + 1) % images.length);
+            }, 1500); // Cambia la imagen cada 1.5 segundos
+          }, 500); // 0.5 segundo de espera antes de iniciar el ciclo
+        } 
     
-        return () => clearInterval(interval);
+        return () => {
+          clearInterval(interval);
+          clearTimeout(timer); // Limpiar el temporizador al salir
+          setCurrentImageIndex(0); // Reiniciar el índice de la imagen al salir
+        };
       }, [hovering, images]);
 
     const handleClick = () => {
@@ -31,12 +38,14 @@ function ProductCard({ product, onAddToCart }) {
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}
             >
-            <img
-                src={images[currentImageIndex]}
-                alt={name}
-                className={`card-img-top product-img ${stock === 0 ? 'opacity-50' : ''}`}
-                style={{ objectFit: 'contain', height: '150px' }}
-            />
+            <div className="zoom-container">
+              <img
+                  src={images[currentImageIndex]}
+                  alt={name}
+                  className={`card-img-top product-img ${stock === 0 ? 'opacity-50' : ''}`}
+                  style={{ objectFit: 'contain', height: '150px' }}
+              />
+            </div>
 
             {hovering && (
                 <div className="image-overlay">
