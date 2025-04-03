@@ -17,13 +17,32 @@ function App() {
 
   // Cargar productos y categorías
   useEffect(() => {
-    setCategories(data.categories);
-    // Clonamos los productos y nos aseguramos de que el stock sea un número
-    const clonedProducts = data.products.map(p => ({
-      ...p,
-      stock: Number(p.stock)
-    }));
-    setProducts(clonedProducts);
+
+    const storedProducts = localStorage.getItem('products');
+    const storedCategories = localStorage.getItem('categories');
+    
+    if (storedCategories) {
+      setCategories(JSON.parse(storedCategories));
+    } else {
+      setCategories(data.categories);
+      // Guardar categorías en localStorage
+      localStorage.setItem('categories', JSON.stringify(data.categories));
+    }
+
+    if (storedProducts) {
+      setProducts(JSON.parse(storedProducts));
+    } else {
+      // Clonamos los productos y nos aseguramos de que el stock sea un número
+      const clonedProducts = data.products.map(p => ({
+        ...p,
+        stock: Number(p.stock)
+      }));
+      setProducts(clonedProducts);
+
+      // Guardamos los productos en localStorage
+      localStorage.setItem('products', JSON.stringify(clonedProducts));
+    }
+
   }, []);
 
   // Agregar producto al carrito

@@ -26,6 +26,11 @@ function AdminPanel({ categories, setCategories, products, setProducts }) {
   const handleAddCategory = () => {
     if (newCategory.trim() === '') return;
 
+    if (categories.some(c => c.name.toLowerCase() === newCategory.toLowerCase())) {
+        alert('Categoría ya existe');
+        return;
+    }
+
     const id = categories.length > 0 ? Math.max(...categories.map(c => c.id)) + 1 : 1;
     const updated = [...categories, { id, name: newCategory }];
     setCategories(updated);
