@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import data from '../data/data.json';
 
 function AdminPanel({ categories, setCategories, products, setProducts }) {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -86,6 +87,24 @@ function AdminPanel({ categories, setCategories, products, setProducts }) {
     setNewProduct(prev => ({ ...prev, images: paths }));
   };
 
+  const handleResetStore = () => {
+    if (!window.confirm('¿Estás seguro de que quieres resetear la tienda?')) return;
+  
+    localStorage.setItem('products', JSON.stringify(data.products.map(p => ({
+      ...p,
+      stock: Number(p.stock)
+    }))));
+  
+    localStorage.setItem('categories', JSON.stringify(data.categories));
+  
+    setProducts(data.products.map(p => ({ ...p, stock: Number(p.stock) })));
+    setCategories(data.categories);
+  
+    alert('La tienda ha sido reseteada correctamente.');
+  };
+  
+
+
   if (!isAdmin) {
     return (
       <div className="card p-4">
@@ -105,8 +124,10 @@ function AdminPanel({ categories, setCategories, products, setProducts }) {
   return (
     <div className="card p-4 mt-4">
       <h4>Panel de Administración</h4>
-
-      <div className="mb-3">
+      <div className="justify-content-between align-items-center px-4 m-3">
+        <button className="btn btn-danger" onClick={handleResetStore}><i className="bi bi-arrow-clockwise"></i> Resetear Tienda</button>
+      </div>
+      <div className="m-4">
         <h5>Añadir Categoría</h5>
         <input
           type="text"
@@ -118,7 +139,7 @@ function AdminPanel({ categories, setCategories, products, setProducts }) {
         <button className="btn btn-secondary" onClick={handleAddCategory}>Agregar Categoría</button>
       </div>
 
-      <div className="mb-3">
+      <div className="m-4">
         <h5>Añadir Producto</h5>
         <input className="form-control mb-2" placeholder="Nombre" value={newProduct.name} onChange={e => setNewProduct(p => ({ ...p, name: e.target.value }))} />
         <input className="form-control mb-2" placeholder="Código" value={newProduct.code} onChange={e => setNewProduct(p => ({ ...p, code: e.target.value }))} />
