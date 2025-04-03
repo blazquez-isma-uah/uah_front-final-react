@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import ProductList from './components/ProductList';
 import Cart from './components/Cart';
 import data from './data/data.json';
+import AdminPanel from './components/AdminPanel';
 import './styles.css';
 import './App.css';
 
@@ -12,7 +13,7 @@ function App() {
   const [categories, setCategories] = useState([]);
   const [cart, setCart] = useState([]);
   const [showNotification, setShowNotification] = useState(false);
-
+  const [showAdminPanel, setShowAdminPanel] = useState(false);
 
   // Cargar productos y categorías
   useEffect(() => {
@@ -91,7 +92,26 @@ function App() {
   
   return (
     <div className="App">
-      <h1 className="text-center mt-3">Tienda Online</h1>
+      <div className="d-flex justify-content-between align-items-center px-4 mt-3">
+        <h1 className="m-0">Tienda Online</h1>
+        <button className="btn btn-outline-secondary" onClick={() => setShowAdminPanel(!showAdminPanel)}>
+          {showAdminPanel ? (<><i className="bi bi-x-circle"></i> Admin</>) 
+          : (<><i className="bi bi-gear"></i> Admin</>)
+          }
+        </button>
+      </div>
+      {showAdminPanel ? 
+      (
+        <div className="container mt-4">
+          <AdminPanel
+            products={products}
+            setProducts={setProducts}
+            categories={categories}
+            setCategories={setCategories}
+          />
+        </div>
+      )
+    : (
       <div className="container mt-4">
         <div className="row">
           <div className='col-md-8'>
@@ -116,8 +136,9 @@ function App() {
           </div>
         </div>
       </div>
+    )
+    }
     </div>
-
   );
 
 
