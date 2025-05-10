@@ -22,9 +22,9 @@
             "stock": 10,
             "categoryId": 1,
             "images": [
-                "img/auriculares.jpg",
-                "img/smartphone.jpg",
-                "img/auriculares.jpg"
+                "img/auriculares_1.jpg",
+                "img/auriculares_2.jpg",
+                "img/auriculares_3.jpg"
             ]
         },
         {
@@ -35,9 +35,9 @@
             "stock": 5,
             "categoryId": 1,
             "images": [
-                "img/smartphone.jpg",
-                "img/smartphone.jpg",
-                "img/smartphone.jpg"
+                "img/smartphone_1.jpg",
+                "img/smartphone_2.jpg",
+                "img/smartphone_3.jpg"
             ]
         },
         {
@@ -48,22 +48,22 @@
             "stock": 3,
             "categoryId": 1,
             "images": [
-                "img/laptop.jpg",
-                "img/laptop.jpg",
-                "img/laptop.jpg"
+                "img/laptop_1.jpg",
+                "img/laptop_2.jpg",
+                "img/laptop_3.jpg"
             ]
         },
         {
             "id": 104,
-            "name": "Tablet Apple",
-            "description": "Tablet Apple con pantalla retina y 128GB de almacenamiento.",
+            "name": "Apple iPad Pro",
+            "description": "Apple iPad Pro con pantalla retina y 128GB de almacenamiento.",
             "price": 560.5,
             "stock": 7,
             "categoryId": 1,
             "images": [
-                "img/tablet.jpg",
-                "img/tablet.jpg",
-                "img/tablet.jpg"
+                "img/ipad_1.jpg",
+                "img/ipad_2.jpg",
+                "img/ipad_3.jpg"
             ]
         },
         {
@@ -74,9 +74,9 @@
             "stock": 6,
             "categoryId": 1,
             "images": [
-                "img/camara.jpg",
-                "img/camara.jpg",
-                "img/camara.jpg"
+                "img/camara_1.jpg",
+                "img/camara_2.jpg",
+                "img/camara_3.jpg"
             ]
         },
         {
@@ -87,9 +87,9 @@
             "stock": 8,
             "categoryId": 1,
             "images": [
-                "img/smartwatch.jpg",
-                "img/smartwatch.jpg",
-                "img/smartwatch.jpg"
+                "img/reloj_1.jpeg",
+                "img/reloj_2.jpeg",
+                "img/reloj_3.jpeg"
             ]
         },
         {
@@ -100,22 +100,22 @@
             "stock": 15,
             "categoryId": 2,
             "images": [
-                "img/camiseta.jpg",
-                "img/camiseta.jpg",
-                "img/camiseta.jpg"
+                "img/camiseta_1.jpg",
+                "img/camiseta_2.jpg",
+                "img/camiseta_3.jpg"
             ]
         },
         {
             "id": 301,
-            "name": "Lámpara LED",
-            "description": "Lámpara de escritorio con luz ajustable y carga USB.",
-            "price": 30.5,
+            "name": "Silla Ergonómica",
+            "description": "Silla de oficina ajustable y cómoda para largas horas de trabajo.",
+            "price": 80.5,
             "stock": 8,
             "categoryId": 3,
             "images": [
-                "img/lampara.jpg",
-                "img/lampara.jpg",
-                "img/lampara.jpg"
+                "img/silla_1.jpg",
+                "img/silla_2.jpg",
+                "img/silla_3.jpg"
             ]
         }
     ]
