@@ -33,7 +33,7 @@
 }  
 
 .product-img {
-    width: 100%; 
+    width: 80%; 
     height: 150px; 
     object-fit: contain; /* Asegura que la imagen no se distorsione */
     transition: transform 0.3s ease-in-out; /* Transición suave */
@@ -42,11 +42,9 @@
 }
 
 .product-image-wrapper:hover .product-img {
-    transform: scale(1.6);
+    transform: scale(1.4);
     z-index: 999; /* Asegura que la imagen esté por encima del overlay al hacer hover */
     position: absolute; /* Cambia la posición a absoluta para que se expanda fuera del contenedor */
-    top: 0; /* Alinea la imagen al contenedor superior */
-    left: 0; /* Alinea la imagen al contenedor izquierdo */
     background-color: white;
 }
 
