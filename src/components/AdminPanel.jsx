@@ -208,7 +208,7 @@ function AdminPanel({ categories, setCategories, products, setProducts }) {
         <button className="btn btn-danger me-3" onClick={handleResetStore}><i className="bi bi-arrow-clockwise"></i> Resetear Tienda</button>
         <button className="btn btn-success me-3" onClick={handleExportStore}><i className="bi bi-file-earmark-arrow-down"></i> Exportar Tienda</button>
         <div className="custom-file-upload"> 
-        <label htmlFor="fileInput" className="btn btn-primary">Importar Tienda (.json)</label>
+        <label htmlFor="fileInput" className="btn btn-primary"><i class="bi bi-file-earmark-arrow-up"></i> Importar Tienda (.json)</label>
         <input
             id="fileInput"
             type="file"
